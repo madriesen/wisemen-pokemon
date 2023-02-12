@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PokemonController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -18,4 +19,10 @@ Route::get('heartbeat', function () {
     return response()->json([
         'message' => 'Welcome to the API',
     ]);
+});
+
+Route::group([
+    'prefix' => 'pokemons',
+], function () {
+    Route::get('/', [PokemonController::class, 'index']);
 });
