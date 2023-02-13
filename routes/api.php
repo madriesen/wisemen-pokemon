@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\PokemonController;
 use App\Http\Controllers\TeamController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,4 +34,5 @@ Route::group([
     Route::get('/', [TeamController::class, 'index']);
     Route::post('/', [TeamController::class, 'create']);
     Route::get('/{team}', [TeamController::class, 'show']);
+    Route::post('/{team}', [TeamController::class, 'assignPokemon']);
 });
