@@ -17,7 +17,7 @@ class Pokemon extends Model
 
     public function toArray()
     {
-        return ['id' => $this->id, 'name' => $this->name, 'sprites' => $this->sprites];
+        return ['id' => $this->id, 'name' => $this->name, 'sprites' => $this->sprites, 'types' => $this->types];
     }
 
     protected function frontDefault(): Attribute
@@ -30,6 +30,13 @@ class Pokemon extends Model
     }
 
     protected function sprites(): Attribute
+    {
+        return Attribute::make(
+            get: fn($value) => json_decode($value),
+        );
+    }
+
+    protected function types(): Attribute
     {
         return Attribute::make(
             get: fn($value) => json_decode($value),

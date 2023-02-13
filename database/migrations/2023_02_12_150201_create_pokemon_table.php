@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->json('sprites');
+            $table->json('types');
             $table->timestamps();
         });
     }
@@ -28,6 +29,7 @@ return new class extends Migration
      */
     public function down()
     {
+
         Schema::dropIfExists('pokemon');
     }
 };

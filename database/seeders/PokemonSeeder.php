@@ -40,6 +40,9 @@ class PokemonSeeder extends Seeder
                     }
                     return $carry;
                 }, [])),
+                "types" => json_encode(array_map(function ($type) {
+                    return ['type' => $type->type->name, 'slot' => $type->slot];
+                }, $value->types)),
             ]);
         }
     }
