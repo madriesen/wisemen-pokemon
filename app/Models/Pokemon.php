@@ -15,12 +15,19 @@ class Pokemon extends Model
         'sprites',
     ];
 
+    protected function frontDefault(): Attribute
+    {
+        return Attribute::make(
+            get: fn($value, $attributes) => array(
+                "front_default" => json_decode($attributes['sprites'])->front_default,
+            ),
+        );
+    }
+
     protected function sprites(): Attribute
     {
         return Attribute::make(
-            get: fn($value) => array(
-                "front_default" => $value,
-            ),
+            get: fn($value) => json_decode($value),
         );
     }
 }

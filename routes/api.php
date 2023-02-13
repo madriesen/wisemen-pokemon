@@ -25,4 +25,5 @@ Route::group([
     'prefix' => 'pokemons',
 ], function () {
     Route::get('/', [PokemonController::class, 'index']);
+    Route::get('/{pokemon}', [PokemonController::class, 'show']);
 });
