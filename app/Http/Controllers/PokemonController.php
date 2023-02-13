@@ -28,10 +28,6 @@ class PokemonController extends Controller
             throw new NoPokemonFoundException($id);
         }
 
-        return [
-            'id' => $pokemon->id,
-            'name' => $pokemon->name,
-            'sprites' => $pokemon->sprites,
-        ];
+        return $pokemon->toArray();
     }
 }

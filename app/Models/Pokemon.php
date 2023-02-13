@@ -15,6 +15,11 @@ class Pokemon extends Model
         'sprites',
     ];
 
+    public function toArray()
+    {
+        return ['id' => $this->id, 'name' => $this->name, 'sprites' => $this->sprites];
+    }
+
     protected function frontDefault(): Attribute
     {
         return Attribute::make(

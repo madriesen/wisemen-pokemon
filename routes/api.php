@@ -33,4 +33,5 @@ Route::group([
     'prefix' => 'teams',
 ], function () {
     Route::get('/', [TeamController::class, 'index']);
+    Route::post('/', [TeamController::class, 'create']);
 });

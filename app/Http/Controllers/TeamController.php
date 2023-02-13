@@ -4,17 +4,20 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateTeamRequest;
 use App\Models\Team;
-use Illuminate\Http\Request;
 
 class TeamController extends Controller
 {
     public function index()
     {
-        $teams = Team::all();
+        return Response()->json(Team::all(), 200);
+    }
 
-        return $teams->map(fn($team) => [
-            'id' => $team->id,
-            'name' => $team->name,
+    public function create(CreateTeamRequest $request)
+    {
+        $team = Team::create([
+            'name' => $request->name,
         ]);
+
+        return Response()->json($team->toArray(), 201);
     }
 }
