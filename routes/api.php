@@ -34,4 +34,5 @@ Route::group([
 ], function () {
     Route::get('/', [TeamController::class, 'index']);
     Route::post('/', [TeamController::class, 'create']);
+    Route::get('/{team}', [TeamController::class, 'show']);
 });
