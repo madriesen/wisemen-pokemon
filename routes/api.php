@@ -27,6 +27,7 @@ Route::group([
     Route::get('/', [PokemonController::class, 'index']);
     Route::get('/{pokemon}', [PokemonController::class, 'show']);
 });
+Route::get('/search', [PokemonController::class, 'search']);
 
 Route::group([
     'prefix' => 'teams',
