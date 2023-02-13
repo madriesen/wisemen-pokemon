@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PokemonController;
+use App\Http\Controllers\TeamController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -26,4 +27,10 @@ Route::group([
 ], function () {
     Route::get('/', [PokemonController::class, 'index']);
     Route::get('/{pokemon}', [PokemonController::class, 'show']);
+});
+
+Route::group([
+    'prefix' => 'teams',
+], function () {
+    Route::get('/', [TeamController::class, 'index']);
 });
