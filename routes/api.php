@@ -31,6 +31,7 @@ Route::get('/search', [PokemonController::class, 'search']);
 
 Route::group([
     'prefix' => 'teams',
+    'middleware' => 'team'
 ], function () {
     Route::get('/', [TeamController::class, 'index']);
     Route::post('/', [TeamController::class, 'create']);
